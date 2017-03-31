@@ -2,6 +2,12 @@
   login works!
 </p>
 <div>
-  <input class="login" type="text" name="" value="">
+  <!--1. #userinfo, 引入的方式实现模板和组件的数据交互-->
+  <!--<input #userinfo class="login" type="text" name="" value="">
+  <input #password type="text" class="login">-->
+
+  <!--2. 双向数据绑定方式实现数据交互-->
+  <input [(ngModel)]="username" required #userinfoRef="ngModel" type="text" class="login">{{userinfoRef.errors | json}}
+  <input [(ngModel)]="password" required #passwordRef="ngModel" minlength="3" type="text" class="login">{{passwordRef.errors | json}}
   <button (click)="Click()" type="submit">submit</button>
 </div>
