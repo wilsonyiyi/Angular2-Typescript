@@ -2,6 +2,46 @@
   login works!
 </p>
 <div>
-  <input class="login" type="text" name="" value="">
-  <button (click)="Click()" type="submit">submit</button>
+  <!--#username 引入方式， 形成数据单向传递给model-->
+  <!--<input class="login" type="text" name="" value="">-->
+
+  <!--2. 双向数据绑定， 实现数据的双向传递-->
+
+  <!-- 放置在一个表单中-->
+  <form #formRef="ngForm">
+    <fieldset ngModelGroup="login">
+      <input type="text" class="login"
+        name="username" 
+        [(ngModel)]="username" 
+        #usernameRef="ngModel" 
+        required
+        placeholder="hello"
+        />
+
+      <!--{{usernameRef.errors | json}}-->
+
+      <div *ngIf="usernameRef.errors?.required">
+        this is required
+      </div>
+
+      <input type="text" class="login"
+        name="password"
+        [(ngModel)]="password" 
+        #passwordRef="ngModel" 
+        required 
+        minlength="3"
+        />
+
+      <!--{{passwordRef.errors | json}}-->
+      <div *ngIf="passwordRef.errors?.required">
+        this is required
+      </div>
+      <div *ngIf="passwordRef.errors?.minlength">
+        should be at least 3 characters
+      </div>
+
+      <!--<button (click)="Click()" type="submit">submit</button>-->
+      <button type="submit" (click)="onSubmit(formRef.value)">Login</button>
+    </fieldset>
+  </form>
 </div>
