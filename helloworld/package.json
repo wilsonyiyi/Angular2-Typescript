@@ -1,0 +1,28 @@
+{
+    "name": "helloworld",
+    "version": "1.0.0",
+    "description": "for angular2",
+    "scripts": {
+        "server": "webpack-dev-server --inline --colors --progress --port 3000",
+        "start": "npm run server"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/core-js": "~0.9.41",
+        "ts-loader": "~2.0.3",
+        "typescript": "~2.2.2",
+        "webpack": "~2.4.1",
+        "webpack-dev-server": "~1.14.0"
+    },
+    "dependencies": {
+        "@angular/common": "~4.0.3",
+        "@angular/compiler": "~4.0.3",
+        "@angular/core": "~4.0.3",
+        "@angular/platform-browser": "~4.0.3",
+        "@angular/platform-browser-dynamic": "~4.0.3",
+        "core-js": "~2.4.1",
+        "reflect-metadata": "~0.1.8",
+        "rxjs": "~5.3.0",
+        "zone.js": "~0.8.5"
+    }
+}
