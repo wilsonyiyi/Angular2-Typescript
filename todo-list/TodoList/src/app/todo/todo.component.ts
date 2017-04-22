@@ -9,56 +9,56 @@ import { Todo } from './todo.model';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  desc: string = '';
-  todos: Todo[] = [];
+	desc: string = '';
+	todos: Todo[] = [];
 
-  constructor(@Inject('todo') private service) { }
+	constructor(@Inject('todo') private service) { }
 
-  ngOnInit() {
-    this.getTodos();
-  }
+	ngOnInit() {
+		this.getTodos();
+	}
+  
+  	// addTodo
+  	addTodo() {  
+		this.service
+			.addTodo(this.desc)
+			.then(todo => { // todos, 是resolve获取的结果
+				this.todos = [...this.todos, todo];
+				this.desc = '';
+			})
+	}
 
-  // addTodo
-  addTodo() {  
-    this.service
-      .addTodo(this.desc)
-      .then(todo => {
-        this.todos = [...this.todos, todo];
-        this.desc = '';
-      })
-  }
+	// toggleTodo
+	toggleTodo(todo: Todo) {
+		const i = this.todos.indexOf(todo);
+		this.service
+			.toggleTodo(todo)
+			.then(t => {
+				this.todos = [
+				...this.todos.slice(0, i),
+				t,
+				...this.todos.slice(i + 1)
+				];
+			})
+	}
 
-  // toggleTodo
-  toggleTodo(todo: Todo) {
-    const i = this.todos.indexOf(todo);
-    this.service
-      .toggleTodo(todo)
-      .then(t => {
-        this.todos = [
-          ...this.todos.slice(0, i),
-          t,
-          ...this.todos.slice(i + 1)
-        ];
-      })
-  }
-
-  // removeTodo
-  removeTodo(todo: Todo) {
-    const i = this.todos.indexOf(todo);
-    this.service
-      .deleteTodoById(todo.id)
-      .then(() => {
-        this.todos = [
-          ...this.todos.slice(0, i),
-          ...this.todos.slice(i + 1)
-        ]
-      })
-  }
-
-  // getTodos
-  getTodos(): void {
-    this.service
-      .getTodo()
-      .then(todos => this.todos = [...todos]);
-  }
+	// removeTodo
+	removeTodo(todo: Todo) {
+		const i = this.todos.indexOf(todo);
+		this.service
+			.deleteTodoById(todo.id)
+			.then(() => {
+			this.todos = [
+				...this.todos.slice(0, i),
+				...this.todos.slice(i + 1)
+			]
+		})
+	}
+  
+	// getTodos
+	getTodos(): void {
+		this.service
+			.getTodos()
+			.then(todos => this.todos = [...todos]);
+	}
 }

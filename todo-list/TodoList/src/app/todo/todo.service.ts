@@ -39,7 +39,7 @@ export class TodoService {
   // PUT /todos/:id
   toggleTodo(todo: Todo): Promise<Todo> {
     const url = `${this.api_url}/${todo.id}`;
-    console.log('url' + url);
+    console.log('url: ' + url);
 
     let updateTodo = Object.assign({}, todo, {completed: !todo.completed});
     return this.http

@@ -20,18 +20,24 @@ import { TodoComponent } from './todo/todo.component';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryTodoDbService } from './todo/todo-data';
 
+// 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DateComponent } from './date/date.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TodoComponent
+    TodoComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryTodoDbService),
-    routing
+    routing,
+    NgbModule.forRoot(),
   ],
   providers: [
     { provide: 'auth', useClass: AuthService},
