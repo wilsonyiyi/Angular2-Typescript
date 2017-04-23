@@ -9,6 +9,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
+import { ContactService, FooterComponent, HeaderComponent } from './shared'
 
 import { rootRouterConfig } from './app.router';
 
@@ -18,7 +19,8 @@ import { rootRouterConfig } from './app.router';
     CollectionComponent,
     DetailComponent,
     EditComponent,
-    ListComponent
+    ListComponent,
+    HeaderComponent, FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,9 @@ import { rootRouterConfig } from './app.router';
     HttpModule,
     RouterModule.forRoot(rootRouterConfig)
   ],
-  providers: [],
+  providers: [
+    ContactService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

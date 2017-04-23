@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 
 @Component({
     selector: 'my-footer',
-    templateUrl: 'app/shared/footer.component.html',
-    styleUrls: ['app/shared/footer.component.css']
+    templateUrl: './footer.component',
+    styleUrls: ['./footer.component']
 })
 
 export class FooterComponent implements OnInit {
