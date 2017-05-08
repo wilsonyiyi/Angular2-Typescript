@@ -1,0 +1,6 @@
+<p>
+  list works!
+</p>
+<li *ngFor="let contact of contacts">
+  <app-item [contact]="contact" (routerNavigate)="routerNavigate($event)"></app-item>
+</li>
