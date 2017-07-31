@@ -1,8 +1,9 @@
-function createSquare(config) {
-    return {
-        color: config.color,
-        area: Math.pow(config.width, 2)
-    };
-}
-var mySquare = createSquare({ colour: "red", width: 10 });
-console.log(mySquare);
+// interface SquareConfig {
+//     color?: string;
+//     width?: number;
+//     [propName: string]: any;
+// }
+var square = {};
+square.color = "red";
+square.sideLength = 10;
+console.log(square);
