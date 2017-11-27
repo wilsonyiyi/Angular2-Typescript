@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ckeditor.component.css']
 })
 export class CkeditorComponent implements OnInit {
-
+  ckeditorContent = "";
   constructor() { }
+  config={
+    filebrowserBrowseUrl :"&&&&&",
+    filebrowserUploadUrl :"&&&"
+  };
 
   ngOnInit() {
   }

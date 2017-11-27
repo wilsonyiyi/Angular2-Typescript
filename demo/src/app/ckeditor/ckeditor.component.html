@@ -1,3 +1,6 @@
 <p>
-  ckeditor works!
+  <ckeditor [(ngModel)]="ckeditorContent" debounce="500" [config]="config">
+  </ckeditor>
+
+  输入的内容：<br> {{ ckeditorContent }}
 </p>
